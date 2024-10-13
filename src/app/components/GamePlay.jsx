@@ -5,6 +5,7 @@ import RollDice from "@/app/components/RollDice";
 import Rules from "@/app/components/Rules";
 import styled from "styled-components";
 import { Button, OutlineButton } from "./StartGame";
+import { toast, Toaster } from "sonner";
 const GamePlay = () => {
   const [currentDice, setCurrentDice] = useState(1);
   const [selectedNumber, setSelectedNumber] = useState(null);
@@ -20,7 +21,9 @@ const GamePlay = () => {
       setCurrentDice(randomNumber);
       if (selectedNumber === randomNumber) {
         setScore((prev) => prev + randomNumber);
-      } else {
+        toast.success(`+${randomNumber}`)
+    } else {
+          toast.success(`-2`)
         setScore((prev) => prev - 2);
       }
       setSelectedNumber(null);
@@ -34,6 +37,7 @@ const GamePlay = () => {
   };
   return (
     <MainContainer>
+        <Toaster/>
       <div className="top-section">
         <TotalScore score={score} />
         <NumberSelector
