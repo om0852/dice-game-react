@@ -15,7 +15,7 @@ const Container = styled.div`
     }
   }
 `;
-const Button = styled.button`
+export const Button = styled.button`
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
@@ -36,6 +36,19 @@ const Button = styled.button`
     background-color: white;
     border: 1px solid black;
     color: black;
+    transition: 0.2s all ease-in;
+  }
+  
+`;
+export const OutlineButton = styled(Button)`
+  /* display: flex; */
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  &:hover {
+    background-color: black;
+    border: 1px solid none;
+    color: white;
     transition: 0.2s all ease-in;
   }
 `;
