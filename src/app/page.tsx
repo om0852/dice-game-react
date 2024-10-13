@@ -1,10 +1,13 @@
 "use client";
 import styled from "styled-components";
-import StartGame from "@/app/components/StartGame"
+import StartGame from "@/app/components/StartGame";
+import GamePlay from "@/app/components/GamePlay";
+import { useState } from "react";
 export default function Home() {
-  return (
-    <>
-    <StartGame/>
-    </>
-  );
+  const [isGameStarted, setIsGameStarted] = useState(true);
+
+  const toggleGamePlay = () => {
+    setIsGameStarted((prev) => !prev);
+  };
+  return <>{!isGameStarted ? <StartGame onClick={toggleGamePlay} /> : <GamePlay />}</>;
 }

@@ -40,7 +40,7 @@ const Button = styled.button`
   }
 `;
 
-const StartGame = () => {
+const StartGame = ({ onClick }) => {
   return (
     <Container>
       <div>
@@ -48,7 +48,7 @@ const StartGame = () => {
       </div>
       <div className="content">
         <h1>Dice Game</h1>
-        <Button>Play now</Button>
+        <Button onClick={onClick}>Play now</Button>
       </div>
     </Container>
   );
