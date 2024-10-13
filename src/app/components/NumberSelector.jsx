@@ -24,10 +24,8 @@ p{
 }
 `
 
-const NumberSelector = () => {
+const NumberSelector = ({selectedNumber,setSelectedNumber}) => {
     const array = [1, 2, 3, 4, 5, 6];
-  const [selectedNumber, setSelectedNumber] = useState(null);
-  console.log(selectedNumber);
 
   return (
     <NumberSelectorContainer>
@@ -46,7 +44,7 @@ const NumberSelector = () => {
       ))}
     </div>
     <p>Select Number</p>
-    </NumberSelectorContainer>
+    </NumberSelectorContainer >
   );
 };
 
