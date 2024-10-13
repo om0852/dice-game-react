@@ -13,38 +13,41 @@ const Box = styled.div`
 `;
 
 const NumberSelectorContainer = styled.div`
-.flex{
+  .flex {
     display: flex;
-    gap:24px
-}
-p{
+    gap: 24px;
+  }
+  p {
     font-size: 24px;
     font-weight: 500;
     text-align: right;
-}
-`
+  }
+`;
 
-const NumberSelector = ({selectedNumber,setSelectedNumber}) => {
-    const array = [1, 2, 3, 4, 5, 6];
+const NumberSelector = ({ selectedNumber, setSelectedNumber, error ,setError}) => {
+  const array = [1, 2, 3, 4, 5, 6];
 
   return (
     <NumberSelectorContainer>
-
-    <div className="flex">
-      {array.map((item, index) => (
-        <Box
-          isSelected={item === selectedNumber}
-          onClick={() => {
-            setSelectedNumber(item);
-          }}
-          key={index}
-        >
-          {item}
-        </Box>
-      ))}
-    </div>
-    <p>Select Number</p>
-    </NumberSelectorContainer >
+      <p className="text-red-600">
+        {error ? "You have not selected any number" : null}
+      </p>
+      <div className="flex">
+        {array.map((item, index) => (
+          <Box
+            isSelected={item === selectedNumber}
+            onClick={() => {
+              setSelectedNumber(item);
+              setError(false);
+            }}
+            key={index}
+          >
+            {item}
+          </Box>
+        ))}
+      </div>
+      <p>Select Number</p>
+    </NumberSelectorContainer>
   );
 };
 

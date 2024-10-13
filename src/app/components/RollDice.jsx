@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const RollDice = ({ setCurrentDice, currentDice }) => {
-  const generateRandomNumber = (min = 1, max = 6) => {
-    return Math.floor(Math.random() * (max - min) + min);
-  };
-  const roleDice = () => {
-    const randomNumber = generateRandomNumber(1, 7);
-    setCurrentDice(randomNumber);
-  };
+const RollDice = ({ roleDice, currentDice }) => {
+  
   useEffect(() => {
     // roleDice();
   });
